@@ -330,7 +330,3 @@ The Near-RT RIC platform deployment was successfully completed with all core com
 The deployment serves as a solid foundation for O-RAN SC development and testing activities, with clear documentation for reproducibility and maintenance.
 
 ---
-
-**Prepared by:** ORAN-SC Deployment Team  
-**Date:** August 20, 2025  
-**Contact:** srao@linuxfoundation.org
