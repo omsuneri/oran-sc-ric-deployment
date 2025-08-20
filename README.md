@@ -94,12 +94,6 @@ This comprehensive implementation provides:
 - E2 simulator integration
 - Documentation complete
 
-## Submission Details
-
-**Submitted to**: srao@linuxfoundation.org  
-**Due date**: August 22, 2025, 23:59 Pacific  
-**Repository**: This GitHub repository contains the complete implementation
-
 ## Implementation Highlights
 
 - **Professional Quality**: Enterprise-ready scripts with comprehensive error handling
