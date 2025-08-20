@@ -1,0 +1,154 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "xapp_name": {
+            "type": "string",
+            "description": "Name of the xApp"
+        },
+        "version": {
+            "type": "string",
+            "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+            "description": "Version of the xApp in semver format"
+        },
+        "containers": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "object",
+                        "properties": {
+                            "registry": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "tag": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["registry", "name", "tag"]
+                    },
+                    "ports": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "container": {
+                                    "type": "integer"
+                                },
+                                "protocol": {
+                                    "type": "string",
+                                    "enum": ["TCP", "UDP"]
+                                }
+                            },
+                            "required": ["name", "container", "protocol"]
+                        }
+                    }
+                },
+                "required": ["name", "image"]
+            },
+            "minItems": 1
+        },
+        "messaging": {
+            "type": "object",
+            "properties": {
+                "ports": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "container": {
+                                "type": "integer"
+                            },
+                            "protocol": {
+                                "type": "string",
+                                "enum": ["TCP", "UDP"]
+                            }
+                        },
+                        "required": ["name", "container", "protocol"]
+                    }
+                }
+            }
+        },
+        "rmr": {
+            "type": "object",
+            "properties": {
+                "protPort": {
+                    "type": "string"
+                },
+                "maxSize": {
+                    "type": "integer"
+                },
+                "numWorkers": {
+                    "type": "integer"
+                },
+                "txMessages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "rxMessages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "policies": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "policy_type_id": {
+                                "type": "integer"
+                            },
+                            "policy_type_version": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["policy_type_id", "policy_type_version"]
+                    }
+                }
+            }
+        },
+        "controls": {
+            "type": "object",
+            "properties": {
+                "logging": {
+                    "type": "object",
+                    "properties": {
+                        "level": {
+                            "type": "string",
+                            "enum": ["debug", "info", "warn", "error"]
+                        }
+                    }
+                },
+                "metrics": {
+                    "type": "object",
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "port": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "required": ["xapp_name", "version", "containers"],
+    "additionalProperties": false
+}

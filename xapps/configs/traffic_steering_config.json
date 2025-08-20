@@ -1,0 +1,66 @@
+{
+    "xapp_name": "traffic-steering",
+    "version": "1.0.0",
+    "containers": [
+        {
+            "name": "traffic-steering",
+            "image": {
+                "registry": "nexus3.o-ran-sc.org:10002",
+                "name": "o-ran-sc/ric-app-ts",
+                "tag": "1.0.0"
+            },
+            "ports": [
+                {
+                    "name": "http",
+                    "container": 8080,
+                    "protocol": "TCP"
+                }
+            ]
+        }
+    ],
+    "messaging": {
+        "ports": [
+            {
+                "name": "rmr-data",
+                "container": 4560,
+                "protocol": "TCP"
+            },
+            {
+                "name": "rmr-route", 
+                "container": 4561,
+                "protocol": "TCP"
+            }
+        ]
+    },
+    "rmr": {
+        "protPort": "tcp:4560",
+        "maxSize": 2072,
+        "numWorkers": 1,
+        "txMessages": [
+            "TS_UE_LIST",
+            "TS_QOE_PRED_REQ", 
+            "TS_QOE_PREDICTION"
+        ],
+        "rxMessages": [
+            "A1_POLICY_REQ",
+            "A1_POLICY_RESP",
+            "RIC_SUB_RESP",
+            "RIC_INDICATION"
+        ],
+        "policies": [
+            {
+                "policy_type_id": 20008,
+                "policy_type_version": "1.0.0"
+            }
+        ]
+    },
+    "controls": {
+        "logging": {
+            "level": "info"
+        },
+        "metrics": {
+            "enabled": true,
+            "port": 8090
+        }
+    }
+}
