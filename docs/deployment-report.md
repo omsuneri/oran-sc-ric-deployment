@@ -1,8 +1,6 @@
 # Near-RT RIC Platform Deployment Report
 
-**Deployment Date:** August 20, 2025  
 **Project:** O-RAN SC Near-RT RIC Platform Deployment  
-**Submitted to:** srao@linuxfoundation.org  
 
 ## Executive Summary
 
