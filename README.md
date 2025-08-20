@@ -2,8 +2,6 @@
 
 **Automated deployment solution for O-RAN Software Community Near-RT RIC platform with xApp integration and E2 simulator.**
 
-**Submission for O-RAN SC Assignment - Due: August 22, 2025**
-
 ## Project Overview
 
 This comprehensive implementation provides:
@@ -68,11 +66,11 @@ This comprehensive implementation provides:
 4. Review logs: `deployment/logs/`
 5. Access services via provided endpoints
 
-## 📋 Main Documentation
+## Main Documentation
 
-**[📖 Complete Deployment Report](docs/deployment-report.md)** - Comprehensive implementation documentation
+**[Complete Deployment Report](docs/deployment-report.md)** - Comprehensive implementation documentation
 
-**[🔧 Troubleshooting Guide](troubleshooting/issues.md)** - Common issues and solutions
+**[Troubleshooting Guide](troubleshooting/issues.md)** - Common issues and solutions
 
 ## Documentation
 
